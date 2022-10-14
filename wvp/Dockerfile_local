@@ -3,8 +3,9 @@ FROM ubuntu:20.04   as   build
 ARG gitUrl="https://gitee.com/pan648540858"
 ARG zlmGitUrl="https://gitee.com/xia-chu/ZLMediaKit"
 
+#复制本目录下wvp-pro.jar文件到wvp容器内，然后构建应用。
 COPY sources.list /etc/apt/sources.list
-COPY wvp-pro.jar /opt/wvp/
+COPY ./wvp-pro.jar /opt/wvp/
 COPY wvp_resources/* /opt/wvp/config/
 
 RUN export DEBIAN_FRONTEND=noninteractive &&\
