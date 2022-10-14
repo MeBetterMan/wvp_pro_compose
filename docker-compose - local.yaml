@@ -29,7 +29,8 @@ services:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./mysql:/var/lib/mysql:rw # 挂载数据目录
   wvp:
-    image: wvp_pro_compose-main_wvp:latest
+    build:
+      context: ./wvp
     restart: always
     environment:
       TZ: ${TZ}
